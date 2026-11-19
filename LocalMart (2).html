@@ -1,0 +1,5654 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://127.0.0.1:5500/abc.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LocalMart - Local Online Market">
+<title>LocalMart</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+input,select,textarea{
+    font-family:inherit;
+}
+
+header{
+    background:white;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+    color:#16803c;
+}
+
+.logo span{
+    color:#ff8a00;
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#444;
+    font-weight:600;
+}
+
+.nav-actions{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    padding:11px 18px;
+    border-radius:8px;
+    font-weight:700;
+}
+
+.btn-primary{
+    background:#16803c;
+    color:white;
+}
+
+.btn-orange{
+    background:#ff8a00;
+    color:white;
+}
+
+.btn-light{
+    background:#eaf7ee;
+    color:#16803c;
+}
+
+.cart-btn{
+    position:relative;
+}
+
+.cart-count{
+    position:absolute;
+    top:-7px;
+    right:-7px;
+    width:21px;
+    height:21px;
+    background:#ef3030;
+    color:white;
+    border-radius:50%;
+    font-size:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* HERO */
+
+.hero{
+    padding:70px 20px;
+    background:linear-gradient(135deg,#e9fff0,#fff5df);
+}
+
+.hero-inner{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:40px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#16803c;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.6;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.search-box{
+    display:flex;
+    max-width:650px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.search-box input{
+    flex:1;
+    border:0;
+    padding:16px;
+    outline:none;
+}
+
+.search-box button{
+    background:#16803c;
+    color:white;
+    padding:0 25px;
+}
+
+.hero-image{
+    height:300px;
+    background:white;
+    border-radius:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:110px;
+}
+
+/* SECTIONS */
+
+.container{
+    max-width:1250px;
+    margin:auto;
+    padding:55px 20px;
+}
+
+.section-title{
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.section-title p{
+    color:#777;
+    margin-top:5px;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.category{
+    background:white;
+    padding:25px 10px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.category-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+/* STORES */
+
+.stores{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.store-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.store-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.store-logo{
+    width:60px;
+    height:60px;
+    border-radius:12px;
+    background:#eaf7ee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+}
+
+.rating{
+    color:#ff9800;
+    margin-top:5px;
+}
+
+.store-card p{
+    color:#777;
+    margin-top:8px;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.product-image{
+    height:180px;
+    background:#eef7f1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:75px;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.product-info h3{
+    margin-bottom:7px;
+}
+
+.product-store{
+    color:#777;
+    font-size:13px;
+}
+
+.product-price{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
+}
+
+.price{
+    color:#16803c;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.add-btn{
+    padding:9px 13px;
+    background:#16803c;
+    color:white;
+    border-radius:7px;
+}
+
+/* OFFERS */
+
+.offers{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.offer{
+    padding:28px;
+    border-radius:18px;
+    color:white;
+    background:linear-gradient(135deg,#16803c,#38b968);
+}
+
+.offer:nth-child(2){
+    background:linear-gradient(135deg,#ff8a00,#ffb340);
+}
+
+.offer:nth-child(3){
+    background:linear-gradient(135deg,#6048dd,#927bff);
+}
+
+.offer h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#17221a;
+    color:white;
+    padding:40px 20px;
+}
+
+.footer-inner{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+footer p,
+footer li{
+    color:#bbb;
+    margin-top:8px;
+    list-style:none;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:5000;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:100%;
+    max-width:550px;
+    max-height:90vh;
+    overflow-y:auto;
+    border-radius:18px;
+    padding:30px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:15px;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:20px;
+}
+
+.modal-title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.modal-title p{
+    color:#777;
+    margin-top:6px;
+}
+
+/* FORMS */
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+/* ROLE */
+
+.role-selection{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.role-card{
+    padding:30px 15px;
+    border:2px solid #e5eee8;
+    border-radius:15px;
+    text-align:center;
+    background:#f8fbf9;
+}
+
+.role-card:hover{
+    border-color:#16803c;
+}
+
+.role-icon{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.role-card p{
+    color:#777;
+    margin-top:6px;
+}
+
+.back-btn{
+    background:none;
+    color:#16803c;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.auth-switch{
+    text-align:center;
+    margin-top:15px;
+    color:#777;
+}
+
+.auth-switch button{
+    background:none;
+    color:#16803c;
+    font-weight:bold;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    display:none;
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.dashboard.active{
+    display:block;
+}
+
+.dashboard-header{
+    background:#17221a;
+    color:white;
+    padding:17px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.dashboard-layout{
+    display:flex;
+    min-height:calc(100vh - 65px);
+}
+
+.sidebar{
+    width:245px;
+    background:white;
+    padding:20px 12px;
+    border-right:1px solid #eee;
+}
+
+.sidebar button{
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:12px 15px;
+    margin-bottom:5px;
+    border-radius:8px;
+    background:none;
+    font-weight:600;
+    color:#555;
+}
+
+.sidebar button:hover,
+.sidebar button.active{
+    background:#eaf7ee;
+    color:#16803c;
+}
+
+.dashboard-content{
+    flex:1;
+    padding:30px;
+    overflow:auto;
+}
+
+.dashboard-title{
+    margin-bottom:25px;
+}
+
+.dashboard-title p{
+    color:#777;
+    margin-top:5px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.stat{
+    background:white;
+    padding:22px;
+    border-radius:13px;
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.stat h3{
+    font-size:27px;
+    margin:7px 0;
+}
+
+.stat p{
+    color:#777;
+}
+
+/* TABLE */
+
+.table-box{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+th{
+    color:#555;
+}
+
+/* ADMIN */
+
+.admin-panel-card{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    margin-bottom:20px;
+}
+
+.admin-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.small-btn{
+    padding:7px 11px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.edit-btn{
+    background:#eaf2ff;
+    color:#2463c5;
+}
+
+.delete-btn{
+    background:#ffeaea;
+    color:#d32f2f;
+}
+
+.add-btn-admin{
+    background:#16803c;
+    color:white;
+    padding:11px 16px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    background:#eaf7ee;
+    color:#16803c;
+    font-size:12px;
+}
+
+/* CUSTOMER */
+
+.customer-welcome{
+    background:linear-gradient(135deg,#16803c,#38b968);
+    color:white;
+    padding:28px;
+    border-radius:16px;
+    margin-bottom:25px;
+}
+
+.customer-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.customer-card{
+    background:white;
+    padding:22px;
+    border-radius:14px;
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.customer-card p{
+    color:#777;
+    margin-top:8px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#17221a;
+    color:white;
+    padding:15px 20px;
+    border-radius:9px;
+    display:none;
+    z-index:10000;
+}
+
+.toast.show{
+    display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+    }
+
+    .categories{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stores,
+    .offers{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .customer-cards{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .role-selection,
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-layout{
+        display:block;
+    }
+
+    .sidebar{
+        width:100%;
+        display:flex;
+        overflow-x:auto;
+    }
+
+    .sidebar button{
+        width:auto;
+        white-space:nowrap;
+    }
+
+    .dashboard-content{
+        padding:18px;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     PUBLIC WEBSITE
+====================================================== -->
+
+<div id="customerSite">
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+Local<span>Mart</span>
+</div>
+
+<nav class="nav-links">
+<a href="http://127.0.0.1:5500/abc.html#home">Home</a>
+<a href="http://127.0.0.1:5500/abc.html#categories">Categories</a>
+<a href="http://127.0.0.1:5500/abc.html#stores">Stores</a>
+<a href="http://127.0.0.1:5500/abc.html#products">Products</a>
+<a href="http://127.0.0.1:5500/abc.html#offers">Offers</a>
+</nav>
+
+<div class="nav-actions">
+
+<button class="btn btn-light" onclick="openAuth()">
+Login
+</button>
+
+<button class="btn btn-primary cart-btn" onclick="openCart()">
+🛒 Cart
+<span class="cart-count" id="cartCount">0</span>
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-inner">
+
+<div>
+
+<h1>
+Your Local Market,
+<span>Online.</span>
+</h1>
+
+<p>
+Discover fresh products, local stores and great offers
+from businesses near you.
+</p>
+
+<div class="search-box">
+
+<input id="mainSearch" placeholder="Search products, stores..." onkeyup="searchProducts()">
+
+<button onclick="searchProducts()">
+Search
+</button>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+🛍️
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="container" id="categories">
+
+<div class="section-title">
+
+<h2>Shop by Category</h2>
+
+<p>Everything you need from local stores.</p>
+
+</div>
+
+<div class="categories">
+
+<div class="category">
+<div class="category-icon">🥦</div>
+<h3>Vegetables</h3>
+</div>
+
+<div class="category">
+<div class="category-icon">🍎</div>
+<h3>Fruits</h3>
+</div>
+
+<div class="category">
+<div class="category-icon">🥛</div>
+<h3>Dairy</h3>
+</div>
+
+<div class="category">
+<div class="category-icon">🍞</div>
+<h3>Bakery</h3>
+</div>
+
+<div class="category">
+<div class="category-icon">🧴</div>
+<h3>Personal Care</h3>
+</div>
+
+<div class="category">
+<div class="category-icon">🏠</div>
+<h3>Home Essentials</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STORES -->
+
+<section class="container" id="stores">
+
+<div class="section-title">
+
+<h2>Popular Local Stores</h2>
+
+<p>Support businesses around you.</p>
+
+</div>
+
+<div class="stores">
+
+<div class="store-card">
+
+<div class="store-top">
+
+<div class="store-logo">🥬</div>
+
+<div>
+<h3>Green Fresh Mart</h3>
+<div class="rating">★★★★★</div>
+</div>
+
+</div>
+
+<p>Fresh vegetables &amp; fruits</p>
+<p>📍 Main Market</p>
+
+</div>
+
+
+<div class="store-card">
+
+<div class="store-top">
+
+<div class="store-logo">🥛</div>
+
+<div>
+<h3>Daily Dairy</h3>
+<div class="rating">★★★★☆</div>
+</div>
+
+</div>
+
+<p>Milk, curd &amp; dairy products</p>
+<p>📍 Central Road</p>
+
+</div>
+
+
+<div class="store-card">
+
+<div class="store-top">
+
+<div class="store-logo">🍞</div>
+
+<div>
+<h3>Sunrise Bakery</h3>
+<div class="rating">★★★★★</div>
+</div>
+
+</div>
+
+<p>Fresh bakery products</p>
+<p>📍 Market Street</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="container" id="products">
+
+<div class="section-title">
+
+<h2>Popular Products</h2>
+
+<p>Prices are controlled by the administrator.</p>
+
+</div>
+
+<div class="products" id="productGrid">
+
+<div class="product">
+
+<div class="product-image">
+🍅
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Tomatoes
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Vegetables
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹40
+</span>
+
+<button class="add-btn" onclick="addToCart(1)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🍎
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Apples
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Fruits
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹120
+</span>
+
+<button class="add-btn" onclick="addToCart(2)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🥛
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Milk
+</h3>
+
+<div class="product-store">
+Daily Dairy
+</div>
+
+<small>
+Dairy
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹60
+</span>
+
+<button class="add-btn" onclick="addToCart(3)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🍞
+</div>
+
+<div class="product-info">
+
+<h3>
+Brown Bread
+</h3>
+
+<div class="product-store">
+Sunrise Bakery
+</div>
+
+<small>
+Bakery
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹45
+</span>
+
+<button class="add-btn" onclick="addToCart(4)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🥔
+</div>
+
+<div class="product-info">
+
+<h3>
+Potatoes
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Vegetables
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹35
+</span>
+
+<button class="add-btn" onclick="addToCart(5)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🍌
+</div>
+
+<div class="product-info">
+
+<h3>
+Bananas
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Fruits
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹50
+</span>
+
+<button class="add-btn" onclick="addToCart(6)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🥣
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Curd
+</h3>
+
+<div class="product-store">
+Daily Dairy
+</div>
+
+<small>
+Dairy
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹55
+</span>
+
+<button class="add-btn" onclick="addToCart(7)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🎂
+</div>
+
+<div class="product-info">
+
+<h3>
+Cake
+</h3>
+
+<div class="product-store">
+Sunrise Bakery
+</div>
+
+<small>
+Bakery
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹350
+</span>
+
+<button class="add-btn" onclick="addToCart(8)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OFFERS -->
+
+<section class="container" id="offers">
+
+<div class="section-title">
+
+<h2>Today's Offers</h2>
+
+<p>Latest offers from LocalMart.</p>
+
+</div>
+
+<div class="offers" id="offerGrid">
+
+<div class="offer green">
+
+<h3>
+20% OFF
+</h3>
+
+<p>
+<strong>
+20%
+</strong>
+</p>
+
+<p>
+On fresh vegetables from selected stores.
+</p>
+
+</div>
+
+
+
+<div class="offer orange">
+
+<h3>
+Free Delivery
+</h3>
+
+<p>
+<strong>
+FREE
+</strong>
+</p>
+
+<p>
+On orders above ₹499.
+</p>
+
+</div>
+
+
+
+<div class="offer purple">
+
+<h3>
+₹100 OFF
+</h3>
+
+<p>
+<strong>
+₹100
+</strong>
+</p>
+
+<p>
+First order offer for new customers.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer-inner">
+
+<div>
+<h3>LocalMart</h3>
+<p>
+Connecting customers with local businesses
+through a simple online marketplace.
+</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<ul>
+<li>Home</li>
+<li>Products</li>
+<li>Stores</li>
+<li>Offers</li>
+</ul>
+</div>
+
+<div>
+<h3>For Business</h3>
+<ul>
+<li>Become a Vendor</li>
+<li>Vendor Support</li>
+<li>Business Solutions</li>
+</ul>
+</div>
+
+<div>
+<h3>Contact</h3>
+<ul>
+<li>📞 +91 98765 43210</li>
+<li>✉️ support@localmart.com</li>
+</ul>
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+
+<!-- ======================================================
+     AUTH MODAL
+====================================================== -->
+
+<div class="modal" id="authModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('authModal')">
+×
+</button>
+
+<div id="roleSelection">
+
+<div class="modal-title">
+<h2>Welcome to LocalMart</h2>
+<p>Choose how you want to continue</p>
+</div>
+
+<div class="role-selection">
+
+<div class="role-card" onclick="selectRole('customer')">
+
+<div class="role-icon">👤</div>
+
+<h3>Customer</h3>
+
+<p>
+Shop products and manage your orders.
+</p>
+
+</div>
+
+
+<div class="role-card" onclick="selectRole('vendor')">
+
+<div class="role-icon">🏪</div>
+
+<h3>Vendor</h3>
+
+<p>
+Manage your store and products.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="authFormContainer" style="display:none">
+
+<button class="back-btn" onclick="backToRoles()">
+← Back
+</button>
+
+<div class="modal-title">
+
+<h2 id="authTitle"></h2>
+
+<p id="authSubtitle"></p>
+
+</div>
+
+
+<!-- CUSTOMER LOGIN -->
+
+<form id="customerLoginForm">
+
+<div class="form-group">
+
+<label>Email or Phone</label>
+
+<input id="customerLoginId" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input type="password" id="customerLoginPassword" required="">
+
+</div>
+
+<button class="btn btn-primary" style="width:100%">
+Login as Customer
+</button>
+
+<div class="auth-switch">
+
+Don't have an account?
+
+<button type="button" onclick="showSignup('customer')">
+Create Account
+</button>
+
+</div>
+
+</form>
+
+
+<!-- CUSTOMER SIGNUP -->
+
+<form id="customerSignupForm" style="display:none">
+
+<div class="form-group">
+
+<label>Full Name</label>
+
+<input id="customerName" required="">
+
+</div>
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>Phone Number</label>
+
+<input type="tel" id="customerPhone" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input type="email" id="customerEmail" required="">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input type="password" id="customerPassword" minlength="6" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Address</label>
+
+<textarea id="customerAddress" rows="3" required=""></textarea>
+
+</div>
+
+<button class="btn btn-primary" style="width:100%">
+Create Customer Account
+</button>
+
+<div class="auth-switch">
+
+Already have an account?
+
+<button type="button" onclick="showLogin('customer')">
+Login
+</button>
+
+</div>
+
+</form>
+
+
+<!-- VENDOR LOGIN -->
+
+<form id="vendorLoginForm" style="display:none">
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input type="email" id="vendorLoginEmail" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input type="password" id="vendorLoginPassword" required="">
+
+</div>
+
+<button class="btn btn-primary" style="width:100%">
+Login as Vendor
+</button>
+
+<div class="auth-switch">
+
+Don't have a vendor account?
+
+<button type="button" onclick="showSignup('vendor')">
+Register Store
+</button>
+
+</div>
+
+</form>
+
+
+<!-- VENDOR SIGNUP -->
+
+<form id="vendorSignupForm" style="display:none">
+
+<div class="form-group">
+
+<label>Owner Name</label>
+
+<input id="vendorOwnerName" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Store Name</label>
+
+<input id="vendorStoreName" required="">
+
+</div>
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>Phone</label>
+
+<input type="tel" id="vendorPhone" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input type="email" id="vendorEmail" required="">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input type="password" id="vendorPassword" minlength="6" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Store Address</label>
+
+<textarea id="vendorAddress" rows="3" required=""></textarea>
+
+</div>
+
+<div class="form-group">
+
+<label>Business Category</label>
+
+<select id="vendorCategory" required="">
+
+<option value="">Select Category</option>
+<option>Grocery Store</option>
+<option>Vegetables &amp; Fruits</option>
+<option>Dairy</option>
+<option>Bakery</option>
+<option>Pharmacy</option>
+<option>Clothing</option>
+<option>Electronics</option>
+<option>Home Essentials</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<button class="btn btn-primary" style="width:100%">
+Register Vendor
+</button>
+
+<div class="auth-switch">
+
+Already registered?
+
+<button type="button" onclick="showLogin('vendor')">
+Login
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     CART
+====================================================== -->
+
+<div class="modal" id="cartModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('cartModal')">
+×
+</button>
+
+<div class="modal-title">
+<h2>🛒 Your Cart</h2>
+<p>Review your selected products.</p>
+</div>
+
+<div id="cartItems"></div>
+
+<div id="cartTotal" style="margin-top:20px;padding-top:15px;border-top:1px solid #ddd;font-size:20px;font-weight:bold">
+</div>
+
+<button class="btn btn-primary" style="width:100%;margin-top:18px" onclick="checkout()">
+Proceed to Checkout
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     CUSTOMER DASHBOARD
+====================================================== -->
+
+<div class="dashboard" id="customerDashboard">
+
+<div class="dashboard-header">
+
+<h2>👤 LocalMart Customer</h2>
+
+<button class="btn btn-orange" onclick="customerLogout()">
+Logout
+</button>
+
+</div>
+
+<div class="dashboard-layout">
+
+<aside class="sidebar">
+
+<button class="active" onclick="customerSection('customerHome',this)">
+🏠 Dashboard
+</button>
+
+<button onclick="customerSection('customerProducts',this)">
+🛍️ Browse Products
+</button>
+
+<button onclick="customerSection('customerOrders',this)">
+📦 My Orders
+</button>
+
+<button onclick="openCart()">
+🛒 My Cart
+</button>
+
+<button onclick="customerSection('customerProfile',this)">
+👤 My Profile
+</button>
+
+</aside>
+
+
+<main class="dashboard-content">
+
+<section id="customerHome">
+
+<div class="customer-welcome">
+
+<h1 id="customerWelcome">
+Welcome!
+</h1>
+
+<p>
+Shop from your favourite local stores.
+</p>
+
+</div>
+
+<div class="customer-cards">
+
+<div class="customer-card">
+
+<h3>📦 My Orders</h3>
+
+<p>Track your orders.</p>
+
+<h2 id="customerOrderCount">0</h2>
+
+</div>
+
+<div class="customer-card">
+
+<h3>🛒 Cart Items</h3>
+
+<p>Products in your cart.</p>
+
+<h2 id="customerCartCount">0</h2>
+
+</div>
+
+<div class="customer-card">
+
+<h3>📍 Address</h3>
+
+<p id="customerAddressDisplay">-</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="customerProducts" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>Browse Products</h1>
+
+<p>Products and prices managed by LocalMart Admin.</p>
+
+</div>
+
+<div class="products" id="customerProductGrid">
+
+<div class="product">
+
+<div class="product-image">
+🍅
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Tomatoes
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Vegetables
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹40
+</span>
+
+<button class="add-btn" onclick="addToCart(1)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🍎
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Apples
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Fruits
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹120
+</span>
+
+<button class="add-btn" onclick="addToCart(2)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🥛
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Milk
+</h3>
+
+<div class="product-store">
+Daily Dairy
+</div>
+
+<small>
+Dairy
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹60
+</span>
+
+<button class="add-btn" onclick="addToCart(3)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🍞
+</div>
+
+<div class="product-info">
+
+<h3>
+Brown Bread
+</h3>
+
+<div class="product-store">
+Sunrise Bakery
+</div>
+
+<small>
+Bakery
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹45
+</span>
+
+<button class="add-btn" onclick="addToCart(4)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🥔
+</div>
+
+<div class="product-info">
+
+<h3>
+Potatoes
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Vegetables
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹35
+</span>
+
+<button class="add-btn" onclick="addToCart(5)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🍌
+</div>
+
+<div class="product-info">
+
+<h3>
+Bananas
+</h3>
+
+<div class="product-store">
+Green Fresh Mart
+</div>
+
+<small>
+Fruits
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹50
+</span>
+
+<button class="add-btn" onclick="addToCart(6)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🥣
+</div>
+
+<div class="product-info">
+
+<h3>
+Fresh Curd
+</h3>
+
+<div class="product-store">
+Daily Dairy
+</div>
+
+<small>
+Dairy
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹55
+</span>
+
+<button class="add-btn" onclick="addToCart(7)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="product">
+
+<div class="product-image">
+🎂
+</div>
+
+<div class="product-info">
+
+<h3>
+Cake
+</h3>
+
+<div class="product-store">
+Sunrise Bakery
+</div>
+
+<small>
+Bakery
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹350
+</span>
+
+<button class="add-btn" onclick="addToCart(8)">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="customerOrders" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>My Orders</h1>
+
+<p>Your order history.</p>
+
+</div>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Order</th>
+<th>Date</th>
+<th>Items</th>
+<th>Total</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody id="customerOrdersTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<section id="customerProfile" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>My Profile</h1>
+
+</div>
+
+<div class="customer-card">
+
+<p>
+<strong>Name:</strong>
+<span id="profileName"></span>
+</p>
+
+<p>
+<strong>Phone:</strong>
+<span id="profilePhone"></span>
+</p>
+
+<p>
+<strong>Email:</strong>
+<span id="profileEmail"></span>
+</p>
+
+<p>
+<strong>Address:</strong>
+<span id="profileAddress"></span>
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     VENDOR DASHBOARD
+====================================================== -->
+
+<div class="dashboard" id="vendorDashboard">
+
+<div class="dashboard-header">
+
+<h2>🏪 LocalMart Vendor Panel</h2>
+
+<button class="btn btn-orange" onclick="vendorLogout()">
+Logout
+</button>
+
+</div>
+
+<div class="dashboard-layout">
+
+<aside class="sidebar">
+
+<button class="active" onclick="vendorSection('vendorHome',this)">
+🏠 Dashboard
+</button>
+
+<button onclick="vendorSection('vendorProducts',this)">
+📦 Products
+</button>
+
+<button onclick="vendorSection('vendorOrders',this)">
+🛒 Orders
+</button>
+
+<button onclick="vendorSection('vendorInventory',this)">
+📊 Inventory
+</button>
+
+<button onclick="vendorSection('vendorOffers',this)">
+🏷️ Offers
+</button>
+
+<button onclick="vendorSection('vendorReviews',this)">
+⭐ Reviews
+</button>
+
+<button onclick="vendorSection('vendorAnalytics',this)">
+📈 Analytics
+</button>
+
+<button onclick="vendorSection('vendorProfile',this)">
+🏪 Store Profile
+</button>
+
+</aside>
+
+
+<main class="dashboard-content">
+
+<section id="vendorHome">
+
+<div class="dashboard-title">
+
+<h1 id="vendorWelcome">
+Vendor Dashboard
+</h1>
+
+<p>Manage your local store.</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>125</h3>
+<p>Total Products</p>
+</div>
+
+<div class="stat">
+<h3>48</h3>
+<p>Today's Orders</p>
+</div>
+
+<div class="stat">
+<h3>₹18,450</h3>
+<p>Today's Sales</p>
+</div>
+
+<div class="stat">
+<h3>4.8</h3>
+<p>Store Rating</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="vendorProducts" style="display:none">
+
+<div class="dashboard-title">
+<h1>Products</h1>
+<p>Manage your store products.</p>
+</div>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+<tr>
+<th>Product</th>
+<th>Category</th>
+<th>Price</th>
+<th>Stock</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Fresh Tomatoes</td>
+<td>Vegetables</td>
+<td>₹40</td>
+<td>50</td>
+</tr>
+
+<tr>
+<td>Milk</td>
+<td>Dairy</td>
+<td>₹60</td>
+<td>30</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<section id="vendorOrders" style="display:none">
+
+<div class="dashboard-title">
+<h1>Orders</h1>
+<p>Manage customer orders.</p>
+</div>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+<tr>
+<th>Order</th>
+<th>Customer</th>
+<th>Amount</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>#LM1001</td>
+<td>Rahul</td>
+<td>₹650</td>
+<td>Preparing</td>
+</tr>
+
+<tr>
+<td>#LM1002</td>
+<td>Ananya</td>
+<td>₹420</td>
+<td>Delivered</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<section id="vendorInventory" style="display:none">
+
+<div class="dashboard-title">
+<h1>Inventory</h1>
+<p>Monitor your stock.</p>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>125</h3>
+<p>Total Items</p>
+</div>
+
+<div class="stat">
+<h3>12</h3>
+<p>Low Stock</p>
+</div>
+
+<div class="stat">
+<h3>5</h3>
+<p>Out of Stock</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="vendorOffers" style="display:none">
+
+<div class="dashboard-title">
+<h1>Offers</h1>
+<p>View current marketplace offers.</p>
+</div>
+
+<div class="customer-card">
+
+<h3>Offers are controlled by Admin</h3>
+
+<p>
+The administrator manages platform-wide offers and pricing.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="vendorReviews" style="display:none">
+
+<div class="dashboard-title">
+<h1>Reviews</h1>
+</div>
+
+<div class="customer-card">
+<h3>⭐ 4.8 / 5</h3>
+<p>Excellent store rating.</p>
+</div>
+
+</section>
+
+
+<section id="vendorAnalytics" style="display:none">
+
+<div class="dashboard-title">
+<h1>Analytics</h1>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>₹2.8L</h3>
+<p>Monthly Revenue</p>
+</div>
+
+<div class="stat">
+<h3>1,245</h3>
+<p>Monthly Orders</p>
+</div>
+
+<div class="stat">
+<h3>18%</h3>
+<p>Growth</p>
+</div>
+
+<div class="stat">
+<h3>4.8</h3>
+<p>Rating</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="vendorProfile" style="display:none">
+
+<div class="dashboard-title">
+<h1>Store Profile</h1>
+</div>
+
+<div class="customer-card">
+
+<p>
+<strong>Owner:</strong>
+<span id="vendorProfileOwner">-</span>
+</p>
+
+<p>
+<strong>Store:</strong>
+<span id="vendorProfileStore">-</span>
+</p>
+
+<p>
+<strong>Email:</strong>
+<span id="vendorProfileEmail">-</span>
+</p>
+
+<p>
+<strong>Phone:</strong>
+<span id="vendorProfilePhone">-</span>
+</p>
+
+<p>
+<strong>Category:</strong>
+<span id="vendorProfileCategory">-</span>
+</p>
+
+<p>
+<strong>Address:</strong>
+<span id="vendorProfileAddress">-</span>
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     ADMIN LOGIN
+====================================================== -->
+
+<div class="modal" id="adminModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('adminModal')">
+×
+</button>
+
+<div class="modal-title">
+
+<h2>🔐 Admin Login</h2>
+
+<p>Authorized administrators only.</p>
+
+</div>
+
+<form onsubmit="adminLogin(event)">
+
+<div class="form-group">
+
+<label>Admin ID</label>
+
+<input id="adminUsername" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input type="password" id="adminPassword" required="">
+
+</div>
+
+<button class="btn btn-primary" style="width:100%">
+Login
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     ADMIN DASHBOARD
+====================================================== -->
+
+<div class="dashboard" id="adminDashboard">
+
+<div class="dashboard-header">
+
+<h2>🔐 LocalMart Admin Panel</h2>
+
+<button class="btn btn-orange" onclick="adminLogout()">
+Logout
+</button>
+
+</div>
+
+
+<div class="dashboard-layout">
+
+<aside class="sidebar">
+
+<button class="active" onclick="adminSection('adminHome',this)">
+🏠 Dashboard
+</button>
+
+<button onclick="adminSection('adminProducts',this)">
+📦 Products &amp; Prices
+</button>
+
+<button onclick="adminSection('adminOffers',this)">
+🏷️ Offers
+</button>
+
+<button onclick="adminSection('adminVendors',this)">
+🏪 Vendors
+</button>
+
+<button onclick="adminSection('adminCustomers',this)">
+👥 Customers
+</button>
+
+<button onclick="adminSection('adminOrders',this)">
+🛒 Orders
+</button>
+
+<button onclick="adminSection('adminPayments',this)">
+💳 Payments
+</button>
+
+<button onclick="adminSection('adminAnalytics',this)">
+📈 Analytics
+</button>
+
+</aside>
+
+
+<main class="dashboard-content">
+
+
+<!-- ADMIN HOME -->
+
+<section id="adminHome">
+
+<div class="dashboard-title">
+
+<h1>Admin Dashboard</h1>
+
+<p>
+Manage LocalMart products, prices and offers.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3 id="adminProductCount">8</h3>
+<p>Products</p>
+</div>
+
+<div class="stat">
+<h3 id="adminOfferCount">3</h3>
+<p>Offers</p>
+</div>
+
+<div class="stat">
+<h3 id="adminCustomerCount">0</h3>
+<p>Customers</p>
+</div>
+
+<div class="stat">
+<h3 id="adminVendorCount">0</h3>
+<p>Vendors</p>
+</div>
+
+</div>
+
+
+<div class="admin-panel-card">
+
+<h2>⚡ Admin Controls</h2>
+
+<p style="color:#777;margin:10px 0 20px">
+You can change product prices and offers from this panel.
+</p>
+
+<div class="admin-actions">
+
+<button class="add-btn-admin" onclick="adminSectionById('adminProducts')">
+Manage Products
+</button>
+
+<button class="add-btn-admin" onclick="adminSectionById('adminOffers')">
+Manage Offers
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ADMIN PRODUCTS -->
+
+<section id="adminProducts" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>📦 Products &amp; Prices</h1>
+
+<p>
+Add, edit or delete products. Price changes appear on the customer website.
+</p>
+
+</div>
+
+
+<div class="admin-panel-card">
+
+<h3 id="productFormTitle">
+Add New Product
+</h3>
+
+<form id="adminProductForm">
+
+<input type="hidden" id="editProductId">
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>Product Name</label>
+
+<input id="adminProductName" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Price ₹</label>
+
+<input type="number" id="adminProductPrice" min="0" required="">
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>Category</label>
+
+<select id="adminProductCategory" required="">
+
+<option value="">Select Category</option>
+<option>Vegetables</option>
+<option>Fruits</option>
+<option>Dairy</option>
+<option>Bakery</option>
+<option>Personal Care</option>
+<option>Home Essentials</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Store Name</label>
+
+<input id="adminProductStore" required="">
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Product Emoji</label>
+
+<input id="adminProductIcon" placeholder="Example: 🍎" required="">
+
+</div>
+
+
+<div class="admin-actions">
+
+<button type="submit" class="add-btn-admin" id="productSubmitButton">
+➕ Add Product
+</button>
+
+<button type="button" class="btn btn-light" onclick="resetProductForm()">
+Clear
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Product</th>
+<th>Category</th>
+<th>Store</th>
+<th>Price</th>
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="adminProductTable">
+
+<tr>
+
+<td>
+🍅
+Fresh Tomatoes
+</td>
+
+<td>
+Vegetables
+</td>
+
+<td>
+Green Fresh Mart
+</td>
+
+<td>
+<strong>₹40</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(1)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(1)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+🍎
+Fresh Apples
+</td>
+
+<td>
+Fruits
+</td>
+
+<td>
+Green Fresh Mart
+</td>
+
+<td>
+<strong>₹120</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(2)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(2)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+🥛
+Fresh Milk
+</td>
+
+<td>
+Dairy
+</td>
+
+<td>
+Daily Dairy
+</td>
+
+<td>
+<strong>₹60</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(3)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(3)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+🍞
+Brown Bread
+</td>
+
+<td>
+Bakery
+</td>
+
+<td>
+Sunrise Bakery
+</td>
+
+<td>
+<strong>₹45</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(4)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(4)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+🥔
+Potatoes
+</td>
+
+<td>
+Vegetables
+</td>
+
+<td>
+Green Fresh Mart
+</td>
+
+<td>
+<strong>₹35</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(5)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(5)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+🍌
+Bananas
+</td>
+
+<td>
+Fruits
+</td>
+
+<td>
+Green Fresh Mart
+</td>
+
+<td>
+<strong>₹50</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(6)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(6)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+🥣
+Fresh Curd
+</td>
+
+<td>
+Dairy
+</td>
+
+<td>
+Daily Dairy
+</td>
+
+<td>
+<strong>₹55</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(7)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(7)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+🎂
+Cake
+</td>
+
+<td>
+Bakery
+</td>
+
+<td>
+Sunrise Bakery
+</td>
+
+<td>
+<strong>₹350</strong>
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editProduct(8)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteProduct(8)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ADMIN OFFERS -->
+
+<section id="adminOffers" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>🏷️ Offers Management</h1>
+
+<p>
+Add, edit or remove offers shown to customers.
+</p>
+
+</div>
+
+
+<div class="admin-panel-card">
+
+<h3 id="offerFormTitle">
+Add New Offer
+</h3>
+
+<form id="adminOfferForm">
+
+<input type="hidden" id="editOfferId">
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>Offer Title</label>
+
+<input id="adminOfferTitle" placeholder="Example: 20% OFF" required="">
+
+</div>
+
+<div class="form-group">
+
+<label>Discount</label>
+
+<input id="adminOfferDiscount" placeholder="Example: 20%" required="">
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Description</label>
+
+<textarea id="adminOfferDescription" rows="3" placeholder="Offer description" required=""></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Offer Type</label>
+
+<select id="adminOfferType">
+
+<option value="green">
+Green
+</option>
+
+<option value="orange">
+Orange
+</option>
+
+<option value="purple">
+Purple
+</option>
+
+</select>
+
+</div>
+
+
+<div class="admin-actions">
+
+<button type="submit" class="add-btn-admin" id="offerSubmitButton">
+➕ Add Offer
+</button>
+
+<button type="button" class="btn btn-light" onclick="resetOfferForm()">
+Clear
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+<th>Discount</th>
+<th>Description</th>
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="adminOfferTable">
+
+<tr>
+
+<td>
+<strong>20% OFF</strong>
+</td>
+
+<td>
+<span class="badge">
+20%
+</span>
+</td>
+
+<td>
+On fresh vegetables from selected stores.
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editOffer(1)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteOffer(1)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+<strong>Free Delivery</strong>
+</td>
+
+<td>
+<span class="badge">
+FREE
+</span>
+</td>
+
+<td>
+On orders above ₹499.
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editOffer(2)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteOffer(2)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+<strong>₹100 OFF</strong>
+</td>
+
+<td>
+<span class="badge">
+₹100
+</span>
+</td>
+
+<td>
+First order offer for new customers.
+</td>
+
+<td>
+
+<button class="small-btn edit-btn" onclick="editOffer(3)">
+✏️ Edit
+</button>
+
+<button class="small-btn delete-btn" onclick="deleteOffer(3)">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ADMIN VENDORS -->
+
+<section id="adminVendors" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>🏪 Vendors</h1>
+
+<p>Registered vendors.</p>
+
+</div>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Owner</th>
+<th>Store</th>
+<th>Email</th>
+<th>Category</th>
+</tr>
+
+</thead>
+
+<tbody id="adminVendorTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ADMIN CUSTOMERS -->
+
+<section id="adminCustomers" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>👥 Customers</h1>
+
+<p>Registered customers.</p>
+
+</div>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Address</th>
+</tr>
+
+</thead>
+
+<tbody id="adminCustomerTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ADMIN ORDERS -->
+
+<section id="adminOrders" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>🛒 Orders</h1>
+
+<p>Marketplace order overview.</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>245</h3>
+<p>Today's Orders</p>
+</div>
+
+<div class="stat">
+<h3>198</h3>
+<p>Delivered</p>
+</div>
+
+<div class="stat">
+<h3>35</h3>
+<p>Processing</p>
+</div>
+
+<div class="stat">
+<h3>12</h3>
+<p>Cancelled</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAYMENTS -->
+
+<section id="adminPayments" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>💳 Payments</h1>
+
+<p>Payment overview.</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>₹8.4L</h3>
+<p>Total Revenue</p>
+</div>
+
+<div class="stat">
+<h3>₹7.9L</h3>
+<p>Successful</p>
+</div>
+
+<div class="stat">
+<h3>₹35K</h3>
+<p>Pending</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ANALYTICS -->
+
+<section id="adminAnalytics" style="display:none">
+
+<div class="dashboard-title">
+
+<h1>📈 Analytics</h1>
+
+<p>Platform performance.</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>₹28.4L</h3>
+<p>Monthly GMV</p>
+</div>
+
+<div class="stat">
+<h3>8,450</h3>
+<p>Orders</p>
+</div>
+
+<div class="stat">
+<h3>2,850</h3>
+<p>Customers</p>
+</div>
+
+<div class="stat">
+<h3>185</h3>
+<p>Vendors</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* ======================================================
+   DEFAULT PRODUCTS
+====================================================== */
+
+const defaultProducts = [
+
+{
+id:1,
+name:"Fresh Tomatoes",
+category:"Vegetables",
+price:40,
+store:"Green Fresh Mart",
+icon:"🍅"
+},
+
+{
+id:2,
+name:"Fresh Apples",
+category:"Fruits",
+price:120,
+store:"Green Fresh Mart",
+icon:"🍎"
+},
+
+{
+id:3,
+name:"Fresh Milk",
+category:"Dairy",
+price:60,
+store:"Daily Dairy",
+icon:"🥛"
+},
+
+{
+id:4,
+name:"Brown Bread",
+category:"Bakery",
+price:45,
+store:"Sunrise Bakery",
+icon:"🍞"
+},
+
+{
+id:5,
+name:"Potatoes",
+category:"Vegetables",
+price:35,
+store:"Green Fresh Mart",
+icon:"🥔"
+},
+
+{
+id:6,
+name:"Bananas",
+category:"Fruits",
+price:50,
+store:"Green Fresh Mart",
+icon:"🍌"
+},
+
+{
+id:7,
+name:"Fresh Curd",
+category:"Dairy",
+price:55,
+store:"Daily Dairy",
+icon:"🥣"
+},
+
+{
+id:8,
+name:"Cake",
+category:"Bakery",
+price:350,
+store:"Sunrise Bakery",
+icon:"🎂"
+}
+
+];
+
+
+/* ======================================================
+   DEFAULT OFFERS
+====================================================== */
+
+const defaultOffers = [
+
+{
+id:1,
+title:"20% OFF",
+discount:"20%",
+description:"On fresh vegetables from selected stores.",
+type:"green"
+},
+
+{
+id:2,
+title:"Free Delivery",
+discount:"FREE",
+description:"On orders above ₹499.",
+type:"orange"
+},
+
+{
+id:3,
+title:"₹100 OFF",
+discount:"₹100",
+description:"First order offer for new customers.",
+type:"purple"
+}
+
+];
+
+
+/* ======================================================
+   DATA FUNCTIONS
+====================================================== */
+
+function getProducts(){
+
+let products =
+JSON.parse(
+localStorage.getItem("localmartProducts")
+);
+
+if(!products){
+
+products = defaultProducts;
+
+localStorage.setItem(
+"localmartProducts",
+JSON.stringify(products)
+);
+
+}
+
+return products;
+
+}
+
+
+function saveProducts(products){
+
+localStorage.setItem(
+"localmartProducts",
+JSON.stringify(products)
+);
+
+}
+
+
+function getOffers(){
+
+let offers =
+JSON.parse(
+localStorage.getItem("localmartOffers")
+);
+
+if(!offers){
+
+offers = defaultOffers;
+
+localStorage.setItem(
+"localmartOffers",
+JSON.stringify(offers)
+);
+
+}
+
+return offers;
+
+}
+
+
+function saveOffers(offers){
+
+localStorage.setItem(
+"localmartOffers",
+JSON.stringify(offers)
+);
+
+}
+
+
+/* ======================================================
+   MODALS
+====================================================== */
+
+function openModal(id){
+
+document.getElementById(id).classList.add("active");
+
+}
+
+
+function closeModal(id){
+
+document.getElementById(id).classList.remove("active");
+
+}
+
+
+/* ======================================================
+   AUTH
+====================================================== */
+
+function openAuth(){
+
+document.getElementById("roleSelection").style.display="block";
+
+document.getElementById("authFormContainer").style.display="none";
+
+openModal("authModal");
+
+}
+
+
+function selectRole(role){
+
+document.getElementById("roleSelection").style.display="none";
+
+document.getElementById("authFormContainer").style.display="block";
+
+if(role==="customer"){
+
+showLogin("customer");
+
+}else{
+
+showLogin("vendor");
+
+}
+
+}
+
+
+function backToRoles(){
+
+document.getElementById("authFormContainer").style.display="none";
+
+document.getElementById("roleSelection").style.display="block";
+
+}
+
+
+function hideAuthForms(){
+
+document.getElementById("customerLoginForm").style.display="none";
+
+document.getElementById("customerSignupForm").style.display="none";
+
+document.getElementById("vendorLoginForm").style.display="none";
+
+document.getElementById("vendorSignupForm").style.display="none";
+
+}
+
+
+function showLogin(role){
+
+hideAuthForms();
+
+if(role==="customer"){
+
+document.getElementById("authTitle").textContent=
+"Customer Login";
+
+document.getElementById("authSubtitle").textContent=
+"Login to your customer account";
+
+document.getElementById("customerLoginForm").style.display="block";
+
+}else{
+
+document.getElementById("authTitle").textContent=
+"Vendor Login";
+
+document.getElementById("authSubtitle").textContent=
+"Login to your vendor account";
+
+document.getElementById("vendorLoginForm").style.display="block";
+
+}
+
+}
+
+
+function showSignup(role){
+
+hideAuthForms();
+
+if(role==="customer"){
+
+document.getElementById("authTitle").textContent=
+"Create Customer Account";
+
+document.getElementById("authSubtitle").textContent=
+"Enter your details";
+
+document.getElementById("customerSignupForm").style.display="block";
+
+}else{
+
+document.getElementById("authTitle").textContent=
+"Register Your Store";
+
+document.getElementById("authSubtitle").textContent=
+"Enter your business details";
+
+document.getElementById("vendorSignupForm").style.display="block";
+
+}
+
+}
+
+
+/* ======================================================
+   CUSTOMER SIGNUP
+====================================================== */
+
+document.getElementById("customerSignupForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const customer={
+
+id:Date.now(),
+
+name:customerName.value.trim(),
+
+phone:customerPhone.value.trim(),
+
+email:customerEmail.value.trim().toLowerCase(),
+
+password:customerPassword.value,
+
+address:customerAddress.value.trim(),
+
+orders:[]
+
+};
+
+let customers=
+JSON.parse(
+localStorage.getItem("localmartCustomers")
+)||[];
+
+
+if(
+customers.some(
+c=>c.email===customer.email ||
+c.phone===customer.phone
+)
+){
+
+alert("Account already exists.");
+
+return;
+
+}
+
+
+customers.push(customer);
+
+localStorage.setItem(
+"localmartCustomers",
+JSON.stringify(customers)
+);
+
+alert("Customer account created successfully!");
+
+this.reset();
+
+showLogin("customer");
+
+});
+
+
+/* ======================================================
+   CUSTOMER LOGIN
+====================================================== */
+
+document.getElementById("customerLoginForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const id=
+customerLoginId.value.trim().toLowerCase();
+
+const password=
+customerLoginPassword.value;
+
+const customers=
+JSON.parse(
+localStorage.getItem("localmartCustomers")
+)||[];
+
+
+const customer=
+customers.find(
+c=>
+(c.email===id || c.phone===id)
+&&
+c.password===password
+);
+
+
+if(!customer){
+
+alert("Invalid customer login.");
+
+return;
+
+}
+
+
+localStorage.setItem(
+"localmartCurrentCustomer",
+JSON.stringify(customer)
+);
+
+closeModal("authModal");
+
+openCustomerDashboard(customer);
+
+});
+
+
+/* ======================================================
+   CUSTOMER DASHBOARD
+====================================================== */
+
+function openCustomerDashboard(customer){
+
+customerSite.style.display="none";
+
+customerDashboard.classList.add("active");
+
+vendorDashboard.classList.remove("active");
+
+adminDashboard.classList.remove("active");
+
+customerWelcome.textContent=
+"Welcome, "+customer.name+"!";
+
+customerAddressDisplay.textContent=
+customer.address;
+
+profileName.textContent=customer.name;
+
+profilePhone.textContent=customer.phone;
+
+profileEmail.textContent=customer.email;
+
+profileAddress.textContent=customer.address;
+
+renderCustomerProducts();
+
+loadCustomerOrders();
+
+updateCustomerCartCount();
+
+}
+
+
+function customerLogout(){
+
+localStorage.removeItem(
+"localmartCurrentCustomer"
+);
+
+customerDashboard.classList.remove("active");
+
+customerSite.style.display="block";
+
+showToast("Logged out successfully.");
+
+}
+
+
+function customerSection(id,button){
+
+[
+"customerHome",
+"customerProducts",
+"customerOrders",
+"customerProfile"
+].forEach(x=>{
+document.getElementById(x).style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+document
+.querySelectorAll("#customerDashboard .sidebar button")
+.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+}
+
+
+/* ======================================================
+   VENDOR SIGNUP
+====================================================== */
+
+document.getElementById("vendorSignupForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const vendor={
+
+id:Date.now(),
+
+ownerName:vendorOwnerName.value.trim(),
+
+storeName:vendorStoreName.value.trim(),
+
+phone:vendorPhone.value.trim(),
+
+email:vendorEmail.value.trim().toLowerCase(),
+
+password:vendorPassword.value,
+
+address:vendorAddress.value.trim(),
+
+category:vendorCategory.value
+
+};
+
+let vendors=
+JSON.parse(
+localStorage.getItem("localmartVendors")
+)||[];
+
+
+if(
+vendors.some(v=>v.email===vendor.email)
+){
+
+alert("Vendor account already exists.");
+
+return;
+
+}
+
+
+vendors.push(vendor);
+
+localStorage.setItem(
+"localmartVendors",
+JSON.stringify(vendors)
+);
+
+alert("Vendor account created successfully!");
+
+this.reset();
+
+showLogin("vendor");
+
+});
+
+
+/* ======================================================
+   VENDOR LOGIN
+====================================================== */
+
+document.getElementById("vendorLoginForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const email=
+vendorLoginEmail.value.trim().toLowerCase();
+
+const password=
+vendorLoginPassword.value;
+
+const vendors=
+JSON.parse(
+localStorage.getItem("localmartVendors")
+)||[];
+
+
+const vendor=
+vendors.find(
+v=>
+v.email===email &&
+v.password===password
+);
+
+
+if(!vendor){
+
+alert("Invalid vendor login.");
+
+return;
+
+}
+
+
+localStorage.setItem(
+"localmartCurrentVendor",
+JSON.stringify(vendor)
+);
+
+closeModal("authModal");
+
+openVendorDashboard(vendor);
+
+});
+
+
+function openVendorDashboard(vendor){
+
+customerSite.style.display="none";
+
+customerDashboard.classList.remove("active");
+
+adminDashboard.classList.remove("active");
+
+vendorDashboard.classList.add("active");
+
+vendorWelcome.textContent=
+"Welcome, "+vendor.storeName+"!";
+
+vendorProfileOwner.textContent=vendor.ownerName;
+
+vendorProfileStore.textContent=vendor.storeName;
+
+vendorProfileEmail.textContent=vendor.email;
+
+vendorProfilePhone.textContent=vendor.phone;
+
+vendorProfileCategory.textContent=vendor.category;
+
+vendorProfileAddress.textContent=vendor.address;
+
+}
+
+
+function vendorLogout(){
+
+localStorage.removeItem(
+"localmartCurrentVendor"
+);
+
+vendorDashboard.classList.remove("active");
+
+customerSite.style.display="block";
+
+showToast("Vendor logged out.");
+
+}
+
+
+function vendorSection(id,button){
+
+[
+"vendorHome",
+"vendorProducts",
+"vendorOrders",
+"vendorInventory",
+"vendorOffers",
+"vendorReviews",
+"vendorAnalytics",
+"vendorProfile"
+].forEach(x=>{
+document.getElementById(x).style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+document
+.querySelectorAll("#vendorDashboard .sidebar button")
+.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+}
+
+
+/* ======================================================
+   ADMIN LOGIN
+====================================================== */
+
+function adminLogin(e){
+
+e.preventDefault();
+
+const id=
+adminUsername.value.trim();
+
+const password=
+adminPassword.value;
+
+if(
+id==="srikar123" &&
+password==="srikar123"
+){
+
+adminModal.classList.remove("active");
+
+customerSite.style.display="none";
+
+customerDashboard.classList.remove("active");
+
+vendorDashboard.classList.remove("active");
+
+adminDashboard.classList.add("active");
+
+updateAdminDashboard();
+
+showToast("Admin login successful!");
+
+}else{
+
+alert("❌ Invalid Admin ID or Password");
+
+}
+
+}
+
+
+/* ======================================================
+   HIDDEN ADMIN ACCESS
+====================================================== */
+
+document.addEventListener("keydown",function(e){
+
+if(
+e.ctrlKey &&
+e.shiftKey &&
+e.key.toLowerCase()==="a"
+){
+
+e.preventDefault();
+
+openModal("adminModal");
+
+}
+
+});
+
+
+function adminLogout(){
+
+adminDashboard.classList.remove("active");
+
+customerSite.style.display="block";
+
+showToast("Admin logged out.");
+
+}
+
+
+/* ======================================================
+   ADMIN NAVIGATION
+====================================================== */
+
+function adminSection(id,button){
+
+[
+"adminHome",
+"adminProducts",
+"adminOffers",
+"adminVendors",
+"adminCustomers",
+"adminOrders",
+"adminPayments",
+"adminAnalytics"
+].forEach(x=>{
+document.getElementById(x).style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+document
+.querySelectorAll("#adminDashboard .sidebar button")
+.forEach(b=>b.classList.remove("active"));
+
+if(button){
+
+button.classList.add("active");
+
+}
+
+if(id==="adminProducts"){
+
+renderAdminProducts();
+
+}
+
+if(id==="adminOffers"){
+
+renderAdminOffers();
+
+}
+
+}
+
+
+function adminSectionById(id){
+
+adminSection(id,null);
+
+}
+
+
+/* ======================================================
+   ADMIN PRODUCT MANAGEMENT
+====================================================== */
+
+document.getElementById("adminProductForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let products=getProducts();
+
+const editId=
+document.getElementById("editProductId").value;
+
+
+const product={
+
+id:editId
+?Number(editId)
+:Date.now(),
+
+name:
+document.getElementById("adminProductName").value.trim(),
+
+price:
+Number(
+document.getElementById("adminProductPrice").value
+),
+
+category:
+document.getElementById("adminProductCategory").value,
+
+store:
+document.getElementById("adminProductStore").value.trim(),
+
+icon:
+document.getElementById("adminProductIcon").value.trim()
+
+};
+
+
+if(editId){
+
+products=
+products.map(
+p=>p.id===Number(editId)
+?product
+:p
+);
+
+showToast("Product updated!");
+
+}else{
+
+products.push(product);
+
+showToast("Product added!");
+
+}
+
+
+saveProducts(products);
+
+resetProductForm();
+
+renderAdminProducts();
+
+renderProducts();
+
+renderCustomerProducts();
+
+updateAdminDashboard();
+
+});
+
+
+function renderAdminProducts(){
+
+const products=getProducts();
+
+const table=
+document.getElementById("adminProductTable");
+
+table.innerHTML="";
+
+
+products.forEach(product=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>
+${escapeHtml(product.icon)}
+${escapeHtml(product.name)}
+</td>
+
+<td>
+${escapeHtml(product.category)}
+</td>
+
+<td>
+${escapeHtml(product.store)}
+</td>
+
+<td>
+<strong>₹${product.price}</strong>
+</td>
+
+<td>
+
+<button
+class="small-btn edit-btn"
+onclick="editProduct(${product.id})">
+✏️ Edit
+</button>
+
+<button
+class="small-btn delete-btn"
+onclick="deleteProduct(${product.id})">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+
+function editProduct(id){
+
+const product=
+getProducts().find(
+p=>p.id===id
+);
+
+if(!product)return;
+
+document.getElementById("editProductId").value=
+product.id;
+
+document.getElementById("adminProductName").value=
+product.name;
+
+document.getElementById("adminProductPrice").value=
+product.price;
+
+document.getElementById("adminProductCategory").value=
+product.category;
+
+document.getElementById("adminProductStore").value=
+product.store;
+
+document.getElementById("adminProductIcon").value=
+product.icon;
+
+document.getElementById("productFormTitle").textContent=
+"Edit Product";
+
+document.getElementById("productSubmitButton").textContent=
+"💾 Update Product";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function deleteProduct(id){
+
+if(
+!confirm(
+"Are you sure you want to delete this product?"
+)
+)return;
+
+
+let products=
+getProducts().filter(
+p=>p.id!==id
+);
+
+saveProducts(products);
+
+renderAdminProducts();
+
+renderProducts();
+
+renderCustomerProducts();
+
+updateAdminDashboard();
+
+showToast("Product deleted.");
+
+}
+
+
+function resetProductForm(){
+
+document.getElementById("adminProductForm").reset();
+
+document.getElementById("editProductId").value="";
+
+document.getElementById("productFormTitle").textContent=
+"Add New Product";
+
+document.getElementById("productSubmitButton").textContent=
+"➕ Add Product";
+
+}
+
+
+/* ======================================================
+   ADMIN OFFER MANAGEMENT
+====================================================== */
+
+document.getElementById("adminOfferForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let offers=getOffers();
+
+const editId=
+document.getElementById("editOfferId").value;
+
+
+const offer={
+
+id:
+editId
+?Number(editId)
+:Date.now(),
+
+title:
+document.getElementById("adminOfferTitle").value.trim(),
+
+discount:
+document.getElementById("adminOfferDiscount").value.trim(),
+
+description:
+document.getElementById("adminOfferDescription").value.trim(),
+
+type:
+document.getElementById("adminOfferType").value
+
+};
+
+
+if(editId){
+
+offers=
+offers.map(
+o=>o.id===Number(editId)
+?offer
+:o
+);
+
+showToast("Offer updated!");
+
+}else{
+
+offers.push(offer);
+
+showToast("Offer added!");
+
+}
+
+
+saveOffers(offers);
+
+resetOfferForm();
+
+renderAdminOffers();
+
+renderOffers();
+
+updateAdminDashboard();
+
+});
+
+
+function renderAdminOffers(){
+
+const offers=getOffers();
+
+const table=
+document.getElementById("adminOfferTable");
+
+table.innerHTML="";
+
+
+offers.forEach(offer=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>
+<strong>${escapeHtml(offer.title)}</strong>
+</td>
+
+<td>
+<span class="badge">
+${escapeHtml(offer.discount)}
+</span>
+</td>
+
+<td>
+${escapeHtml(offer.description)}
+</td>
+
+<td>
+
+<button
+class="small-btn edit-btn"
+onclick="editOffer(${offer.id})">
+✏️ Edit
+</button>
+
+<button
+class="small-btn delete-btn"
+onclick="deleteOffer(${offer.id})">
+🗑️ Delete
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+
+function editOffer(id){
+
+const offer=
+getOffers().find(
+o=>o.id===id
+);
+
+if(!offer)return;
+
+document.getElementById("editOfferId").value=
+offer.id;
+
+document.getElementById("adminOfferTitle").value=
+offer.title;
+
+document.getElementById("adminOfferDiscount").value=
+offer.discount;
+
+document.getElementById("adminOfferDescription").value=
+offer.description;
+
+document.getElementById("adminOfferType").value=
+offer.type;
+
+document.getElementById("offerFormTitle").textContent=
+"Edit Offer";
+
+document.getElementById("offerSubmitButton").textContent=
+"💾 Update Offer";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function deleteOffer(id){
+
+if(
+!confirm(
+"Are you sure you want to delete this offer?"
+)
+)return;
+
+
+let offers=
+getOffers().filter(
+o=>o.id!==id
+);
+
+saveOffers(offers);
+
+renderAdminOffers();
+
+renderOffers();
+
+updateAdminDashboard();
+
+showToast("Offer deleted.");
+
+}
+
+
+function resetOfferForm(){
+
+document.getElementById("adminOfferForm").reset();
+
+document.getElementById("editOfferId").value="";
+
+document.getElementById("offerFormTitle").textContent=
+"Add New Offer";
+
+document.getElementById("offerSubmitButton").textContent=
+"➕ Add Offer";
+
+}
+
+
+/* ======================================================
+   CUSTOMER PRODUCT DISPLAY
+====================================================== */
+
+function renderProducts(list=getProducts()){
+
+const grid=
+document.getElementById("productGrid");
+
+grid.innerHTML="";
+
+
+if(list.length===0){
+
+grid.innerHTML=
+"<p>No products available.</p>";
+
+return;
+
+}
+
+
+list.forEach(product=>{
+
+grid.innerHTML+=productCard(product);
+
+});
+
+}
+
+
+function renderCustomerProducts(){
+
+const grid=
+document.getElementById("customerProductGrid");
+
+grid.innerHTML="";
+
+
+getProducts().forEach(product=>{
+
+grid.innerHTML+=productCard(product);
+
+});
+
+}
+
+
+function productCard(product){
+
+return `
+
+<div class="product">
+
+<div class="product-image">
+${escapeHtml(product.icon)}
+</div>
+
+<div class="product-info">
+
+<h3>
+${escapeHtml(product.name)}
+</h3>
+
+<div class="product-store">
+${escapeHtml(product.store)}
+</div>
+
+<small>
+${escapeHtml(product.category)}
+</small>
+
+<div class="product-price">
+
+<span class="price">
+₹${product.price}
+</span>
+
+<button
+class="add-btn"
+onclick="addToCart(${product.id})">
+Add
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* ======================================================
+   SEARCH
+====================================================== */
+
+function searchProducts(){
+
+const value=
+document.getElementById("mainSearch")
+.value
+.toLowerCase()
+.trim();
+
+
+const filtered=
+getProducts().filter(
+p=>
+p.name.toLowerCase().includes(value) ||
+p.category.toLowerCase().includes(value) ||
+p.store.toLowerCase().includes(value)
+);
+
+renderProducts(filtered);
+
+}
+
+
+/* ======================================================
+   OFFERS DISPLAY
+====================================================== */
+
+function renderOffers(){
+
+const grid=
+document.getElementById("offerGrid");
+
+const offers=getOffers();
+
+grid.innerHTML="";
+
+
+offers.forEach(offer=>{
+
+grid.innerHTML+=`
+
+<div class="offer ${escapeHtml(offer.type)}">
+
+<h3>
+${escapeHtml(offer.title)}
+</h3>
+
+<p>
+<strong>
+${escapeHtml(offer.discount)}
+</strong>
+</p>
+
+<p>
+${escapeHtml(offer.description)}
+</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* ======================================================
+   CART
+====================================================== */
+
+function getCart(){
+
+return JSON.parse(
+localStorage.getItem("localmartCart")
+)||[];
+
+}
+
+
+function saveCart(cart){
+
+localStorage.setItem(
+"localmartCart",
+JSON.stringify(cart)
+);
+
+}
+
+
+function addToCart(id){
+
+const product=
+getProducts().find(
+p=>p.id===id
+);
+
+if(!product)return;
+
+let cart=getCart();
+
+const existing=
+cart.find(
+item=>item.id===id
+);
+
+
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+
+id:product.id,
+
+name:product.name,
+
+price:product.price,
+
+icon:product.icon,
+
+quantity:1
+
+});
+
+}
+
+
+saveCart(cart);
+
+updateCartCount();
+
+updateCustomerCartCount();
+
+showToast(
+product.name+" added to cart!"
+);
+
+}
+
+
+function updateCartCount(){
+
+const count=
+getCart().reduce(
+(sum,item)=>sum+item.quantity,
+0
+);
+
+document.getElementById("cartCount")
+.textContent=count;
+
+}
+
+
+function updateCustomerCartCount(){
+
+const el=
+document.getElementById("customerCartCount");
+
+if(el){
+
+const count=
+getCart().reduce(
+(sum,item)=>sum+item.quantity,
+0
+);
+
+el.textContent=count;
+
+}
+
+}
+
+
+function openCart(){
+
+renderCart();
+
+openModal("cartModal");
+
+}
+
+
+function renderCart(){
+
+const cart=getCart();
+
+const box=
+document.getElementById("cartItems");
+
+const totalBox=
+document.getElementById("cartTotal");
+
+
+if(cart.length===0){
+
+box.innerHTML=`
+
+<div style="text-align:center;padding:30px">
+
+<div style="font-size:50px">🛒</div>
+
+<h3>Your cart is empty</h3>
+
+</div>
+
+`;
+
+totalBox.textContent="Total: ₹0";
+
+return;
+
+}
+
+
+box.innerHTML="";
+
+let total=0;
+
+
+cart.forEach(item=>{
+
+const itemTotal=
+item.price*item.quantity;
+
+total+=itemTotal;
+
+box.innerHTML+=`
+
+<div style="
+display:flex;
+justify-content:space-between;
+padding:14px 0;
+border-bottom:1px solid #eee;
+">
+
+<div>
+
+<strong>
+${escapeHtml(item.icon)}
+${escapeHtml(item.name)}
+</strong>
+
+<p style="color:#777">
+₹${item.price} × ${item.quantity}
+</p>
+
+</div>
+
+<div>
+
+<strong>
+₹${itemTotal}
+</strong>
+
+<button
+onclick="removeFromCart(${item.id})"
+style="color:#e53935;background:none;margin-left:8px">
+Remove
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+totalBox.textContent=
+"Total: ₹"+total;
+
+}
+
+
+function removeFromCart(id){
+
+let cart=
+getCart().filter(
+item=>item.id!==id
+);
+
+saveCart(cart);
+
+renderCart();
+
+updateCartCount();
+
+updateCustomerCartCount();
+
+}
+
+
+/* ======================================================
+   CHECKOUT
+====================================================== */
+
+function checkout(){
+
+const cart=getCart();
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+
+const customer=
+JSON.parse(
+localStorage.getItem(
+"localmartCurrentCustomer"
+)
+);
+
+
+if(!customer){
+
+closeModal("cartModal");
+
+openAuth();
+
+alert(
+"Please login as a customer before checkout."
+);
+
+return;
+
+}
+
+
+let orders=
+JSON.parse(
+localStorage.getItem(
+"localmartOrders"
+)
+)||[];
+
+
+const total=
+cart.reduce(
+(sum,item)=>sum+item.price*item.quantity,
+0
+);
+
+
+const order={
+
+id:"LM"+Date.now().toString().slice(-6),
+
+customerId:customer.id,
+
+items:cart,
+
+total:total,
+
+date:new Date().toLocaleDateString(),
+
+status:"Placed"
+
+};
+
+
+orders.push(order);
+
+localStorage.setItem(
+"localmartOrders",
+JSON.stringify(orders)
+);
+
+localStorage.removeItem("localmartCart");
+
+closeModal("cartModal");
+
+updateCartCount();
+
+updateCustomerCartCount();
+
+alert(
+"🎉 Order placed successfully!\nOrder ID: "+
+order.id
+);
+
+loadCustomerOrders();
+
+}
+
+
+/* ======================================================
+   CUSTOMER ORDERS
+====================================================== */
+
+function loadCustomerOrders(){
+
+const customer=
+JSON.parse(
+localStorage.getItem(
+"localmartCurrentCustomer"
+)
+);
+
+if(!customer)return;
+
+
+const orders=
+JSON.parse(
+localStorage.getItem(
+"localmartOrders"
+)
+)||[];
+
+
+const myOrders=
+orders.filter(
+o=>o.customerId===customer.id
+);
+
+
+const table=
+document.getElementById(
+"customerOrdersTable"
+);
+
+table.innerHTML="";
+
+
+myOrders.forEach(order=>{
+
+const count=
+order.items.reduce(
+(sum,item)=>sum+item.quantity,
+0
+);
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${escapeHtml(order.id)}</td>
+
+<td>${escapeHtml(order.date)}</td>
+
+<td>${count}</td>
+
+<td>₹${order.total}</td>
+
+<td>${escapeHtml(order.status)}</td>
+
+</tr>
+
+`;
+
+});
+
+
+document.getElementById(
+"customerOrderCount"
+).textContent=myOrders.length;
+
+}
+
+
+/* ======================================================
+   ADMIN DASHBOARD DATA
+====================================================== */
+
+function updateAdminDashboard(){
+
+const products=getProducts();
+
+const offers=getOffers();
+
+const customers=
+JSON.parse(
+localStorage.getItem(
+"localmartCustomers"
+)
+)||[];
+
+const vendors=
+JSON.parse(
+localStorage.getItem(
+"localmartVendors"
+)
+)||[];
+
+
+document.getElementById(
+"adminProductCount"
+).textContent=
+products.length;
+
+document.getElementById(
+"adminOfferCount"
+).textContent=
+offers.length;
+
+document.getElementById(
+"adminCustomerCount"
+).textContent=
+customers.length;
+
+document.getElementById(
+"adminVendorCount"
+).textContent=
+vendors.length;
+
+
+renderAdminProducts();
+
+renderAdminOffers();
+
+renderAdminCustomers();
+
+renderAdminVendors();
+
+}
+
+
+function renderAdminCustomers(){
+
+const customers=
+JSON.parse(
+localStorage.getItem(
+"localmartCustomers"
+)
+)||[];
+
+const table=
+document.getElementById(
+"adminCustomerTable"
+);
+
+table.innerHTML="";
+
+
+customers.forEach(c=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${escapeHtml(c.name)}</td>
+
+<td>${escapeHtml(c.phone)}</td>
+
+<td>${escapeHtml(c.email)}</td>
+
+<td>${escapeHtml(c.address)}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+
+function renderAdminVendors(){
+
+const vendors=
+JSON.parse(
+localStorage.getItem(
+"localmartVendors"
+)
+)||[];
+
+const table=
+document.getElementById(
+"adminVendorTable"
+);
+
+table.innerHTML="";
+
+
+vendors.forEach(v=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${escapeHtml(v.ownerName)}</td>
+
+<td>${escapeHtml(v.storeName)}</td>
+
+<td>${escapeHtml(v.email)}</td>
+
+<td>${escapeHtml(v.category)}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+
+/* ======================================================
+   TOAST
+====================================================== */
+
+function showToast(message){
+
+const toast=
+document.getElementById("toast");
+
+toast.textContent=message;
+
+toast.classList.add("show");
+
+setTimeout(
+()=>{
+toast.classList.remove("show");
+},
+2500
+);
+
+}
+
+
+/* ======================================================
+   HTML ESCAPE
+====================================================== */
+
+function escapeHtml(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* ======================================================
+   START WEBSITE
+====================================================== */
+
+renderProducts();
+
+renderOffers();
+
+renderCustomerProducts();
+
+updateCartCount();
+
+updateCustomerCartCount();
+
+updateAdminDashboard();
+
+
+/* ======================================================
+   RESTORE CUSTOMER/VENDOR SESSION
+====================================================== */
+
+const savedCustomer=
+JSON.parse(
+localStorage.getItem(
+"localmartCurrentCustomer"
+)
+);
+
+const savedVendor=
+JSON.parse(
+localStorage.getItem(
+"localmartCurrentVendor"
+)
+);
+
+
+if(savedCustomer){
+
+openCustomerDashboard(savedCustomer);
+
+}
+
+if(savedVendor){
+
+openVendorDashboard(savedVendor);
+
+}
+
+</script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+
+</body></html>
